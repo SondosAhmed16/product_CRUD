@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1.text-center.mb-4 Edit Product
+
+  form(action=`/products/${product.id}?_method=PUT`, method="POST")
+    .mb-3
+      input.form-control(type="text", name="name", value=product.name, required)
+    .mb-3
+      input.form-control(type="number", step="1", name="price", value=product.price, required)
+    .mb-3
+      input.form-control(type="number", name="stock", value=product.stock, required)
+
+    .button-group
+      button.btn.btn-primary(type="submit") Save Changes
+      a.btn.btn-secondary(href="/products") Cancel

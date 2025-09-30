@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1.text-center.mb-4 Add New Product
+
+  form(action="/products", method="POST")
+    .mb-3
+      input.form-control(type="text", name="name", placeholder="Product Name", required)
+    .mb-3
+      input.form-control(type="number", step="1", name="price", placeholder="Price", required)
+    .mb-3
+      input.form-control(type="number", name="stock", placeholder="Stock", required)
+
+    .button-group
+      button.btn.btn-primary(type="submit") Add Product
+      a.btn.btn-secondary(href="/products") Cancel

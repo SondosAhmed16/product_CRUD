@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h1.text-center.mb-4 Product Details
+
+  .card.shadow-sm.mx-auto(style="max-width: 500px; padding: 20px;")
+    h3.card-title.text-center #{product.name}
+    hr
+    .mb-2
+      strong ID: 
+      span #{product.id}
+    .mb-2
+      strong Price: 
+      span $#{product.price.toFixed(2)}
+    .mb-2
+      strong Stock: 
+      span #{product.stock}
+
+    .button-group.mt-3
+      a.btn.btn-secondary(href="/products") Back
+      a.btn.btn-warning(href=`/products/${product.id}/edit`) Edit
+      form(action=`/products/${product.id}?_method=DELETE`, method="POST")
+        button.btn.btn-danger(type="submit") Delete
